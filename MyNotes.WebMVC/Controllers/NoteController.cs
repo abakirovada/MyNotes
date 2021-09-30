@@ -43,6 +43,15 @@ namespace MyNotes.WebMVC.Controllers
             return View(model);
         }
 
+        //get by id
+        public ActionResult Details(int id)
+        {
+            var svc = CreateNoteService();
+            var model = svc.GetNoteById(id);
+
+            return View(model);
+        }
+
         private NoteService CreateNoteService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
